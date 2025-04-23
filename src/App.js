@@ -30,9 +30,17 @@ const App = () => {
   const [items, setItems] = useState([{}]);
   const [area, setArea] = useState('');
   const [unit, setUnit] = useState('');
+  const [plant, setPlant] = useState(''); // New state for plant dropdown
   const [openDialog, setOpenDialog] = useState(false);
   const [ticketId, setTicketId] = useState('');
   const isMobile = useMediaQuery('(max-width:600px)');
+  
+  // List of plants/vessels
+  const plantOptions = [
+    'TCHI', 'TCNO', 'TMAT', 'TMSU', 'TPSU', 
+    'TPUC', 'TSAM', 'TSUP', 'TVEG', 'TATI', 
+    'TAST', 'TPAC'
+  ];
   
   const currentDate = new Date().toLocaleDateString('es-ES', {
     day: '2-digit',
@@ -66,7 +74,7 @@ const App = () => {
       email_del_solicitante: data.email,
       area_del_solicitante: area,
       unidad_operativa: unit,
-      planta_o_ep: data.plant,
+      planta_o_ep: plant, // Using the selected plant value
       id_ticket: newTicketId,
       estado_ticket: 'Nuevo',
       items: items.map((item) => ({
@@ -105,6 +113,7 @@ const App = () => {
     setItems([{}]);
     setArea('');
     setUnit('');
+    setPlant(''); // Reset plant state
   };
 
   const fishAnimation = {
@@ -193,7 +202,7 @@ const App = () => {
               variant="outlined"
               InputProps={{ sx: { borderRadius: 1 } }}
             >
-              {['CCM', 'Mannto Flota', 'Mantto Pesca', 'Producción'].map((option) => (
+              {['CCM', 'Mannto Flota', 'Mantto Planta', 'Producción'].map((option) => (
                 <MenuItem key={option} value={option}>
                   {option}
                 </MenuItem>
@@ -219,16 +228,25 @@ const App = () => {
             </TextField>
           </Box>
 
+          {/* Replaced text field with dropdown menu */}
           <TextField
+            select
             fullWidth
-            label="Planta o Embarcación pesquera"
-            {...register('plant', { required: 'Campo obligatorio' })}
-            error={!!errors.plant}
-            helperText={errors.plant?.message}
+            label="Centro"
+            value={plant}
+            onChange={(e) => setPlant(e.target.value)}
+            error={!plant && Object.keys(errors).length > 0}
+            helperText={!plant && Object.keys(errors).length > 0 ? 'Campo obligatorio' : ''}
             sx={{ mb: 4 }}
             variant="outlined"
             InputProps={{ sx: { borderRadius: 1 } }}
-          />
+          >
+            {plantOptions.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </TextField>
 
           <Paper 
             elevation={3} 
