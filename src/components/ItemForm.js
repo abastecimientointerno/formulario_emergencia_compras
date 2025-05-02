@@ -157,7 +157,7 @@ const ItemForm = ({ index, item, updateItem }) => {
       <Grid item xs={12}>
         <TextField
           fullWidth
-          label="Proveedor Sugerido"
+          label="Destinatario"
           value={item.suggestedProvider || ''}
           onChange={(e) => updateItem(index, 'suggestedProvider', e.target.value)}
           variant="outlined"

@@ -228,7 +228,7 @@ const App = () => {
             </TextField>
           </Box>
 
-          {/* Replaced text field with dropdown menu */}
+          {/* Dropdown menu */}
           <TextField
             select
             fullWidth
