@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/formulario_emergencia_compras/static/css/main.54d8e548.css",
-    "main.js": "/formulario_emergencia_compras/static/js/main.9db4f94c.js",
+    "main.js": "/formulario_emergencia_compras/static/js/main.76f636cb.js",
     "index.html": "/formulario_emergencia_compras/index.html",
     "main.54d8e548.css.map": "/formulario_emergencia_compras/static/css/main.54d8e548.css.map",
-    "main.9db4f94c.js.map": "/formulario_emergencia_compras/static/js/main.9db4f94c.js.map"
+    "main.76f636cb.js.map": "/formulario_emergencia_compras/static/js/main.76f636cb.js.map"
   },
   "entrypoints": [
     "static/css/main.54d8e548.css",
-    "static/js/main.9db4f94c.js"
+    "static/js/main.76f636cb.js"
   ]
 }
