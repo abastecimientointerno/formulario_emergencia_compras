@@ -1,4 +1,4 @@
-# Formulario compras de emergencia
+# Formulario Compras de Emergencia
 Gestión ágil de solicitudes de compras de emergencia en entornos operativos.
 
 ## Características
@@ -27,7 +27,7 @@ Gestión ágil de solicitudes de compras de emergencia en entornos operativos.
 
 - Node.js (versión 16 o superior)
 - npm (incluido con Node.js)
-- Acceso a SharePoint y flujos de Power Automate configurados (si aplica)
+- Licencia activa de Microsoft Office 365 con acceso a SharePoint y Power Automate
 
 ## Instalación
 
@@ -35,3 +35,42 @@ Gestión ágil de solicitudes de compras de emergencia en entornos operativos.
    ```bash
    git clone https://github.com/abastecimientointerno/formulario_emergencia_compras.git
    cd emergency-purchase-app
+   ```
+
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+
+3. Inicia la aplicación en modo desarrollo:
+   ```bash
+   npm start
+   ```
+   La aplicación estará disponible en `http://localhost:3000`.
+
+## Uso
+
+1. **Acceso al Formulario**:
+   - Los usuarios acceden a la aplicación e ingresan sus datos en el formulario principal.
+   - Pueden añadir múltiples artículos especificando descripción, cantidad y prioridad.
+
+2. **Envío de Solicitud**:
+   - Al enviar el formulario, se valida que todos los campos obligatorios estén completos.
+   - Una vez enviado, se muestra un diálogo de confirmación con el ID del ticket y una animación.
+
+3. **Gestión de Tickets**:
+   - Los compradores acceden a los tickets en SharePoint a través de una vista Kanban.
+   - Pueden actualizar el estado de las solicitudes.
+
+4. **Notificaciones**:
+   - Los solicitantes reciben un correo con los detalles de su solicitud y el ID del ticket.
+
+## Licencia
+
+Este proyecto utiliza licencias para React (MIT) y Microsoft Office 365 (licencia comercial activa requerida para SharePoint y Power Automate).
+
+## Contacto
+
+Para soporte o consultas, contacta al equipo de desarrollo en:
+- Email: abastecimientointerno@gmail.com
+- GitHub Issues: [Formulario Compras de Emergencia Issues](https://github.com/abastecimientointerno/formulario_emergencia_compras/issues)
