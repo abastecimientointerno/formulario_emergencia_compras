@@ -24,7 +24,7 @@ import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import ItemForm from './components/ItemForm';
-
+const endpoint = process.env.REACT_APP_FLOW_ENDPOINT;
 const App = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const [items, setItems] = useState([{}]);
@@ -93,7 +93,7 @@ const App = () => {
     };
 
     try {
-      const response = await axios.post('https://prod-13.brazilsouth.logic.azure.com:443/workflows/23469e42e13349368d1d4631ab5c08e8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=fkaK-S90bycAAjupSc9v5QA_9cY8VsvX13JGr4Vceos', formData, {
+      const response = await axios.post(endpoint, formData, {
         headers: { 'Content-Type': 'application/json' },
       });
       if (response.status === 200 || response.status === 202) {
